@@ -7,7 +7,11 @@ api: INVALID
 depend: [Vault, PlaceholderAPI]
 
 commands:
-  test:
-      description: Test command.
-      usage: /EdoriaSkyblock test
-      aliases: [edoriaSky test]
+    edoriaSkyblock:
+        description: Commande principale du plugin EdoriaSkyblock
+        usage: /edoriaSkyblock
+        aliases: [edoriaSkyblock, esb]
+    testWebhook:
+        description: Test Discord command
+        usage: /edoriaSkyblock testDiscord
+        aliases: []

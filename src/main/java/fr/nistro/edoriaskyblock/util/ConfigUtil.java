@@ -1,14 +1,11 @@
 package fr.nistro.edoriaskyblock.util;
 
 import java.io.File;
-import java.util.List;
 
-import org.bukkit.OfflinePlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
-
-import me.clip.placeholderapi.PlaceholderAPI;
 
 public class ConfigUtil {
 	private final File file;
@@ -39,15 +36,7 @@ public class ConfigUtil {
 		return this.config;
 	}
 	
-	public String getString(String path, OfflinePlayer player) {
-		return PlaceholderAPI.setPlaceholders(player, this.config.getString(path)).replace("&", "§");
-	}
-	
-	public List<String> getStringList(String path, OfflinePlayer player) {
-		final List<String> list = this.config.getStringList(path);
-		for (int i = 0; i < list.size(); i++) {
-			list.set(i, PlaceholderAPI.setPlaceholders(player, list.get(i))).replace("&", "§");
-		}
-		return list;
+	public static String getString(String path) {
+		return FormatterUtil.format(Bukkit.getPluginManager().getPlugin("EdoriaSkyblock").getConfig().getString(path), null);
 	}
 }

@@ -16,8 +16,6 @@ import java.util.TimeZone;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import org.bukkit.Bukkit;
-
 /**
  * Class used to execute Discord Webhooks with low effort
  */
@@ -36,7 +34,7 @@ public class DiscordWebhookUtil {
      * @param url The webhook URL obtained in Discord
      */
     public DiscordWebhookUtil() {
-    	this.url = Bukkit.getPluginManager().getPlugin("Exostia").getConfig().getString("webhookURL");
+    	this.url = ConfigUtil.getString("webhook.url");
     }
 
     public void setContent(String content) {
@@ -268,7 +266,7 @@ public class DiscordWebhookUtil {
         
         public EmbedObject setTimestampNow() {
             final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-            dateFormat.setTimeZone(TimeZone.getTimeZone(Bukkit.getPluginManager().getPlugin("Exostia").getConfig().getString("report.embed.timezone")));
+            dateFormat.setTimeZone(TimeZone.getTimeZone(ConfigUtil.getString("webhook.embed.timezone")));
             this.timestamp = dateFormat.format(new Date());
             return this;
         }

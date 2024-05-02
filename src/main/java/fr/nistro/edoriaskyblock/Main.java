@@ -5,41 +5,44 @@ import java.sql.Connection;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.nistro.edoriaskyblock.command.TestWebhookCommand;
 import fr.nistro.edoriaskyblock.util.ConfigUtil;
 import fr.nistro.edoriaskyblock.util.DatabaseUtil;
 import fr.nistro.edoriaskyblock.util.DependenciesUtil;
+import fr.nistro.edoriaskyblock.util.FormatterUtil;
 
 public class Main extends JavaPlugin {
 	
-	private static Main instance;
 	private Connection connection;
-	
-	public static Main getInstance() {
-		if (Main.instance == null) {
-			Main.instance = new Main();
-		}
-		return Main.instance;
-	}
+	private static String prefix;
 	
 
 	@Override
 	public void onEnable() {
 		// Vérification des dépendances
-    	DependenciesUtil.checkDependencies();
+		DependenciesUtil.checkDependencies();
+		
+		this.saveDefaultConfig();
+		
+		final ConfigUtil config = new ConfigUtil(this, "config.yml");
+		config.getConfig().options().copyDefaults(true);
+		config.save();
+		
+		// Récupère le prefix
+		Main.prefix = FormatterUtil.format(config.getConfig().getString("prefix"), null);
+		
+		// Connexion à la base de données
+		this.connection =  DatabaseUtil.getInstance().getConnection();
+		
+		// Enregistrement des commandes
+		this.getCommand("testWebhook").setExecutor(new TestWebhookCommand());
     	
-    	this.saveDefaultConfig();
-    	
-    	final ConfigUtil config = new ConfigUtil(this, "config.yml");
-    	config.getConfig().options().copyDefaults(true);
-    	config.save();
-    	
-    	
-		this.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "EdoriaSkyblock enabled");
+		this.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "§6[§eEdoriaSkyblock§6] §r§aPlugin enabled");
 	}
 
 	@Override
 	public void onDisable() {
-		this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "EdoriaSkyblock disabled");
+		this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "§6[§eEdoriaSkyblock§6] §r§cPlugin disabled");
 	}
 	
 	public Connection getConnection() {
@@ -47,5 +50,9 @@ public class Main extends JavaPlugin {
 			this.connection = DatabaseUtil.getInstance().getConnection();
 		}
 		return this.connection;
+	}
+	
+	public static String getPrefix() {
+		return Main.prefix;
 	}
 }
