@@ -1,5 +1,5 @@
 # Exostia - Configuration
-prefix: §6[§fEdoria&aSkyblock§6] §r
+prefix: §6[§eEdoriaSkyblock§6] §r§a
 
 #MySQL
 database:
@@ -10,4 +10,9 @@ database:
   password: ""
 
 # Discord Webhook
-webhookURL: ""
+webhook:
+  url: "https://discord.com/api/webhooks/1235732327364038767/upMsiyQAlNXoTJV0y56GHnlj7fEIqaivbZuGqBuFmJGczsBbIGcV6WT0ARrW0MPLOR9-"
+  embed:
+    username: "EdoriaSkyblock"
+    avatar_url: "https://media.discordapp.net/attachments/1235673810544365608/1235730741271199784/minecraft_title.png?ex=66356f6f&is=66341def&hm=ec4f3cd11c20bd14a5b18fd6ec38672573b933314d1f58ca0e6772c2e53c5b88&=&format=webp&quality=lossless&width=711&height=711"
+    timezone: "UTC"
