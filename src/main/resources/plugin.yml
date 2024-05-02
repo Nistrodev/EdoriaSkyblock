@@ -1,0 +1,13 @@
+name: EdoriaSkyblock
+version: 1.0.0
+author: Nistro
+description: Skyblock plugin for Edoria server.
+main: fr.nistro.edoriaskyblock.Main
+api: INVALID
+depend: [Vault, PlaceholderAPI]
+
+commands:
+  test:
+      description: Test command.
+      usage: /EdoriaSkyblock test
+      aliases: [edoriaSky test]

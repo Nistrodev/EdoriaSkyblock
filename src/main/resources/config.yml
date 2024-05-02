@@ -1,0 +1,13 @@
+# Exostia - Configuration
+prefix: §6[§fEdoria&aSkyblock§6] §r
+
+#MySQL
+database:
+  host: "localhost"
+  port: 3306
+  database: "edoria_db"
+  username: "root"
+  password: ""
+
+# Discord Webhook
+webhookURL: ""
