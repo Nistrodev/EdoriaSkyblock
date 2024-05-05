@@ -11,7 +11,3 @@ commands:
         description: Commande principale du plugin EdoriaSkyblock
         usage: /edoriaSkyblock
         aliases: [edoriaSkyblock, esb]
-    testWebhook:
-        description: Test Discord command
-        usage: /edoriaSkyblock testDiscord
-        aliases: []

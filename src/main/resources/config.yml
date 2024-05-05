@@ -11,8 +11,64 @@ database:
 
 # Discord Webhook
 webhook:
+  username: "EdoriaSkyblock"
   url: "https://discord.com/api/webhooks/1235732327364038767/upMsiyQAlNXoTJV0y56GHnlj7fEIqaivbZuGqBuFmJGczsBbIGcV6WT0ARrW0MPLOR9-"
+  avatar_url: "https://i.imgur.com/8VhffMR.png"
   embed:
-    username: "EdoriaSkyblock"
-    avatar_url: "https://media.discordapp.net/attachments/1235673810544365608/1235730741271199784/minecraft_title.png?ex=66356f6f&is=66341def&hm=ec4f3cd11c20bd14a5b18fd6ec38672573b933314d1f58ca0e6772c2e53c5b88&=&format=webp&quality=lossless&width=711&height=711"
     timezone: "UTC"
+
+# Discord Chat
+discordChat:
+  webhook:
+    url: "https://discord.com/api/webhooks/1235732327364038767/upMsiyQAlNXoTJV0y56GHnlj7fEIqaivbZuGqBuFmJGczsBbIGcV6WT0ARrW0MPLOR9-"
+    username: "EdoriaSkyblock"
+    avatar_url: "https://i.imgur.com/8VhffMR.png"
+    
+# Report
+report:
+  webhook:
+    url:
+    username: "EdoriaSkyblock"
+    avatar_url: "https://i.imgur.com/8VhffMR.png"
+  embed:
+      title: "Report"
+      reporter: "Reporter"
+      target: "Target"
+      message: "Message"
+      thumbnail: "https://i.imgur.com/8VhffMR.png"
+      footerText: "EdoriaSkyblock"
+      footerIcon: "https://i.imgur.com/8VhffMR.png"
+  prefix: "§6[§eReport§6] §r§a"
+  symbol: "⚠"
+  cantReportYourself: "§cVous ne pouvez pas vous signaler vous-même !"
+  success: "§aVotre signalement a bien été envoyé !"
+  playerNotFound: "§cLe joueur %target% n'a pas été trouvé !"
+  usage: "§cUtilisation : Cliquer sur le symbole à côté du message du joueur que vous souhaitez signaler."
+ 
+ 
+# Messages
+messages:
+  hoverMessageInChat: "§6[§eHover§6] §r§aClique moi pour envoyer un message privé !"
+  separatorInChat: "§r > "
+  
+# Join/Quit
+joinQuit:
+  webhook:
+    url: "https://discord.com/api/webhooks/1235732327364038767/upMsiyQAlNXoTJV0y56GHnlj7fEIqaivbZuGqBuFmJGczsBbIGcV6WT0ARrW0MPLOR9-"
+    username: "EdoriaSkyblock"
+    avatar_url: "https://i.imgur.com/8VhffMR.png"
+
+  join:
+    firstJoinMessage: "§6[§eFirstJoin§6] §r§aBienvenue sur le serveur %player_name% !"
+    joinMessage: "§r§a[+] %player_name%"
+    joinMessageActionBar: "§r§a[+] %player_name%"
+    joinEmbed:
+      title: "Player Join"
+      description: "%player_name% vient de rejoindre le serveur"
+   
+  quit:
+    quitMessage: "§r§c[-] %player_name%"
+    quitMessageActionBar: "§r§c[-] %player_name%"
+    quitEmbed:
+      title: "Player Quit"
+      description: "%player_name% vient de quitter le serveur"
